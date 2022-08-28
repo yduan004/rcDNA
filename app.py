@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_wtf import Form
 from src.verify import validated
 from src.rc import reverseComplement
 
@@ -11,7 +10,6 @@ def index():
         dnaseq = request.form['dnaseq']
         seqs = validated(dnaseq)
         rcseqs = reverseComplement(seqs) 
-        print('rc', rcseqs)
         holder = ';'.join(dnaseq.split('\r\n'))
         return render_template('index.html', seqs=rcseqs, holder=holder)
     else:
