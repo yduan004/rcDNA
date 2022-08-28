@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>rcDNA</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Reverse Complement DNA</h1>
+    <p>This web service can be used to convert DNA sequence(s) into their 
+        reverse-complement counterpart. 
+    </p>
+    <form action="/" method="POST">
+        <input type="text" name="dnaseq" id="dnaseq">
+        <input type="submit" value="Submit">
+    </form>
+    {% if seqs is not none %}
+        {% if seqs|length == 0 %}
+            <p>None of the input lines are DNA sequences!</p>
+        {% else %}
+            <p> The reverse complement sequences for the {{ seqs|length }} valid DNA sequence lines are: </p>
+            {% for seq in seqs %}
+                <p>{{ seq }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
