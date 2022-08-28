@@ -13,7 +13,7 @@ def index():
         holder = ';'.join(dnaseq.split('\r\n'))
         return render_template('index.html', seqs=rcseqs, holder=holder)
     else:
-        return render_template('index.html', seqs=None, dnaseq='')
+        return render_template('index.html', seqs=None, holder='ATGCGAA')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=1234, debug=True)
