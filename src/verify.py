@@ -10,9 +10,11 @@ def valid(seq):
 
 def validated(seqs):
     seqs = seqs.upper()
-    seq_list = seqs.split('\n')
+    seq_list = seqs.split('\r\n')
+    if seq_list[0] == '':
+        return []
     res = []
-    for seq in seq_list:
+    for i, seq in enumerate(seq_list):
         if valid(seq):
-            res.append(seq)
+            res.append((seq, i+1))
     return res
