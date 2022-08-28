@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
-{% block head %}
-<title>rcDNA</title>
-{% endblock %}
+{% block title %}rcDNA{% endblock %}
 
 {% block body %}
 <div class="container">
@@ -12,13 +10,13 @@
             reverse-complement counterpart.</p>
     </div>
     <div>
-        <form method="POST" role="form", action="/" class="form-horizontal">
+        <form method="POST" action="/" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label">Input DNA sequences separated by lines:</label>
                 <textarea class="form-control" name="dnaseq" id="dnaseq" rows="3" placeholder={{holder}}></textarea>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">Or upload txt file</span>
+                <span class="input-group-text">Or upload txt/fastq file (size limit: 5M)</span>
                 <input type="file" class="form-control" name="seqfile" id="seqfile">
             </div>    
             <div class="row">
@@ -30,15 +28,27 @@
         </form>
     </div>
     <br>
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
     <div class="mb-3">
         {% if seqs is not none %}
             {% if seqs|length == 0 %}
+              <div class="alert alert-secondary" role="alert">
                 <p>None of the input lines are DNA sequences!</p>
             {% else %}
-                <p> The reverse complement sequences for the {{ seqs|length }} valid DNA sequence lines are: </p>
-                {% for seq, index in seqs %}
-                    <p>line {{index}}: {{seq}}</p>
-                {% endfor %}
+              <div class="alert alert-success" role="alert">
+                The reverse complement sequences for the {{ seqs|length }} valid DNA sequence lines are:
+              </div>
+              <div class="card">
+                <div class="card-body">
+                    {% for seq, index in seqs %}
+                        <p>line {{index}}: {{seq}}</p>
+                    {% endfor %}
+                  </div>
+              </div>
             {% endif %}
         {% endif %}
     </div>
