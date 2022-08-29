@@ -2,7 +2,7 @@
 It is a web application that can be used to convert DNA sequence(s) into their reverse-complement counterpart.
 
 # Run on Heroku
-Go to https://rcdna.herokuapp.com/ to run this tool online.
+Go to <a href="https://rcdna.herokuapp.com/" target="_blank">https://rcdna.herokuapp.com/</a> to run this tool online.
 
 # Run from Docker Hub
 1. Install Docker on your machine by refering to [Get Docker](https://docs.docker.com/get-docker/)
