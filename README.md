@@ -1,5 +1,5 @@
 # Introduction
-It is a web application that can be used to convert DNA sequence(s) into their reverse-complement counterpart. The [data/sampleSequences.txt]() file is a example of what the uploaded txt file should be look like.
+It is a web application that can be used to convert DNA sequence(s) into their reverse-complement counterpart. The [data/sampleSequences.txt](https://github.com/yduan004/rcDNA/blob/main/data/sampleSequences.txt) file is a example of what the uploaded txt file can be look like. Basically, the sequences are separated into different lines, they can be either DNA sequences, sequence identifiers or other informations. The program will automated identify the valid DNA sequences and output their reverse complement sequences with line numbers.
 
 # Run on Heroku
 Go to <a href="https://rcdna.herokuapp.com/" target="_blank">https://rcdna.herokuapp.com</a> to run this tool online.
