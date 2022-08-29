@@ -9,9 +9,9 @@ Go to https://rcdna.herokuapp.com/ to run this tool online.
 2. The docker image of this application has been pushed to DockerHub, one can directly
 build and run the application locally by running in shell the following commandline:
 ```sh
-docker run yuzhu2/rcdna
+docker run -p 1234:1234 yuzhu2/rcdna
 ```
-Open http://localhost:1234 or http://0.0.0.0:1234 in your web browser to use the application.
+Open http://localhost:1234 or http://0.0.0.0:1234 in your web browser to use this web tool.
 
 # Run from local Docker
 1. Git clone this repository to your local computer
@@ -24,4 +24,4 @@ cd rcDNA
 docker build --tag rcdna .
 docker run -p 1234:1234 rcdna
 ```
-Open http://localhost:1234 or http://0.0.0.0:1234 in your web browser to use the application.
+Open http://localhost:1234 or http://0.0.0.0:1234 in your web browser to use this web tool.
